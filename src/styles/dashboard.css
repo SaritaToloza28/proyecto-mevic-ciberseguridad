@@ -1,0 +1,466 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 1.1rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Icono del título dentro de un círculo carbón con icono amarillo */
+.section-title svg {
+  background: var(--charcoal);
+  color: var(--yellow);
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+/* ==========================================
+   Bloque 1: Hero Banner (taupe con esferas difuminadas)
+   ========================================== */
+.hero-banner {
+  background: var(--hero-bg);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Esferas amarilla y coral difuminadas, como en la referencia */
+.hero-banner::before,
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(6px);
+}
+
+.hero-banner::before {
+  top: -40px;
+  right: 60px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle at 40% 40%, var(--yellow-soft) 0%, var(--yellow) 55%, rgba(250, 216, 74, 0.6) 100%);
+  opacity: 0.85;
+}
+
+.hero-banner::after {
+  bottom: -70px;
+  right: 230px;
+  width: 170px;
+  height: 170px;
+  background: radial-gradient(circle at 40% 40%, #f79a8c 0%, var(--coral) 60%, rgba(242, 112, 95, 0.6) 100%);
+  opacity: 0.8;
+}
+
+.hero-content {
+  flex: 1;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.hero-banner h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+  color: var(--hero-text);
+  letter-spacing: 0.3px;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--hero-text-soft);
+  font-weight: 700;
+}
+
+.hero-description {
+  color: var(--hero-text-soft);
+  line-height: 1.7;
+  max-width: 620px;
+  font-size: 1rem;
+}
+
+.hero-shield-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--charcoal);
+  box-shadow: 0 14px 30px -12px rgba(35, 36, 40, 0.6);
+  flex-shrink: 0;
+}
+
+.animated-shield {
+  color: #ffffff;
+  width: 70px;
+  height: 70px;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-banner:hover .animated-shield {
+  transform: scale(1.1) rotate(8deg);
+  color: var(--yellow);
+}
+
+
+/* ==========================================
+   Bloque 2: Capítulos Grid (tarjetas blancas)
+   ========================================== */
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.chapter-card {
+  background: var(--bg-card);
+  border: none;
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  color: var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-soft);
+}
+
+.chapter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft-hover);
+}
+
+.chapter-card code {
+  background: var(--bg-row) !important;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.card-icon-wrapper {
+  background: var(--taupe);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+
+.chapter-card:hover .card-icon-wrapper {
+  background: var(--charcoal);
+}
+
+.card-icon {
+  color: var(--charcoal);
+  transition: color 0.3s ease;
+}
+
+.chapter-card:hover .card-icon {
+  color: var(--yellow);
+}
+
+.chapter-card h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.chapter-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.card-footer-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.card-action-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Flecha en botón circular carbón con icono amarillo */
+.card-arrow {
+  background: var(--charcoal);
+  color: var(--yellow);
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.chapter-card:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+
+/* ==========================================
+   Bloque 3: Teams Grid (tarjetas carbón)
+   ========================================== */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.team-card {
+  --team-color: var(--yellow);
+  --accent-blue: var(--yellow);
+  --accent-purple: var(--coral);
+  --text-secondary: #bdb6ad;
+
+  background: var(--charcoal);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  border: none;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Esfera de color difuminada en la esquina */
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--team-color);
+  opacity: 0.85;
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.team-card > * {
+  position: relative;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft-hover);
+}
+
+.team-card.red { --team-color: var(--team-red); }
+.team-card.blue { --team-color: var(--team-blue); }
+.team-card.purple { --team-color: var(--team-purple); }
+
+.kali-install-card::before {
+  display: none;
+}
+
+.team-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  color: #ffffff;
+}
+
+.team-card p {
+  font-size: 0.9rem;
+  color: #d4cdc4;
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   Bloque 4: Metodología Pipeline
+   ========================================== */
+.methodology-pipeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.85rem;
+}
+
+.phase-step {
+  background: var(--bg-card);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.phase-step:hover {
+  background: var(--charcoal);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft-hover);
+}
+
+.step-number {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #1f1f22;
+  background: var(--yellow);
+  letter-spacing: 1px;
+  margin: 0 auto 0.5rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.step-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.phase-step:hover .step-title {
+  color: #ffffff;
+}
+
+
+/* ==========================================
+   Bloque 5: Labs Grid (filas tipo "My Habits")
+   ========================================== */
+.labs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.lab-item {
+  background: var(--bg-card);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.35rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.lab-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft-hover);
+}
+
+.lab-item h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.lab-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--bg-row);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+/* Botón pastilla carbón */
+.lab-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--charcoal);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.lab-link svg {
+  color: var(--yellow);
+}
+
+.lab-item:hover .lab-link {
+  background: var(--coral);
+}
+
+.lab-item:hover .lab-link svg {
+  color: #ffffff;
+}
+
+/* --- Laboratorios: abrir PDF al hacer clic en toda la tarjeta --- */
+.lab-item {
+  position: relative;
+  gap: 1rem;
+}
+
+.lab-link-stretched::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.lab-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Botón de descarga (queda por encima del enlace extendido) */
+.lab-download {
+  position: relative;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-row);
+  color: var(--text-primary);
+}
+
+.lab-download:hover {
+  background: var(--yellow);
+  color: #1f1f22;
+}

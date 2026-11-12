@@ -1,0 +1,145 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 1.5rem 1rem;
+}
+
+.sidebar-header {
+  padding: 0.5rem 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  color: var(--sidebar-text-strong);
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--sidebar-text-strong);
+}
+
+.brand-subtitle {
+  font-size: 0.7rem;
+  color: var(--sidebar-text);
+  letter-spacing: 0.5px;
+}
+
+/* Panel blanco redondeado que agrupa la navegación */
+.sidebar-nav {
+  background: var(--sidebar-panel);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 999px;
+  color: var(--sidebar-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  background: var(--sidebar-hover);
+  color: var(--sidebar-text-strong);
+}
+
+.nav-item.active {
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+  font-weight: 700;
+}
+
+.nav-item.active svg {
+  color: var(--sidebar-active-icon);
+}
+
+.main-content {
+  margin-left: 260px;
+  flex: 1;
+  padding: 2rem 2.5rem;
+  min-height: 100vh;
+}
+
+.sidebar-footer {
+  background: var(--sidebar-panel);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Botón tipo pastilla negra (como "Upgrade") */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--charcoal);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn svg {
+  color: var(--yellow);
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  background: var(--yellow);
+  color: #1f1f22;
+}
+
+[data-theme="dark"] .theme-toggle-btn svg {
+  color: #1f1f22;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+}
+
+.theme-toggle-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.footer-credits {
+  font-size: 0.75rem;
+  color: var(--sidebar-text);
+  text-align: center;
+}
