@@ -93,6 +93,13 @@ export const laboratorios = [
     pdf: "/laboratorios/lab09-dvwa-vulnerabilidades-web.pdf",
   },
   {
+    num: "10",
+    title: "Explotación avanzada y mitigación de vulnerabilidades web con DVWA (Parte 2)",
+    desc: "CSRF, subida y ejecución de Web Shell (File Upload), Local File Inclusion (LFI) y Blind SQL Injection.",
+    area: "Aplicaciones web",
+    pdf: "/laboratorios/lab10-dvwa-parte2.pdf",
+  },
+  {
     num: "11",
     title: "Análisis de seguridad web con OWASP ZAP",
     desc: "Proxy de interceptación, Spider, AJAX Spider, Active Scan y generación de reporte sobre DVWA en Docker.",
